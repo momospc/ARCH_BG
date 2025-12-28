@@ -1,0 +1,25 @@
+
+# Pandoc / LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+
+# PDF build artifacts
+*.pdf
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS
+.DS_Store
+Thumbs.db
