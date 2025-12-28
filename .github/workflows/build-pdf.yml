@@ -29,16 +29,15 @@ jobs:
 
       - name: Build PDF with Pandoc
         run: |
-          pandoc archlinux-практическо\ ръководство.md \
-            --toc \
-            --toc-depth=2 \
+          pandoc "archlinux-практическо ръководство.md" \
             --pdf-engine=xelatex \
-            -H preamble.tex \
+            --include-in-header=preamble.tex \
             --include-before-body=titlepage.tex \
+            -V documentclass=book \
+            -V papersize=A5 \
+            -V geometry:margin=2.5cm \
             -V mainfont="Noto Serif" \
             -V monofont="JetBrains Mono" \
-            -V geometry:a5paper \
-            -V geometry:margin=2.5cm \
             -o Arch_Linux_Prak_Rakovodstvo_BG.pdf
 
       - name: Upload PDF artifact
@@ -46,3 +45,4 @@ jobs:
         with:
           name: Arch_Linux_Book_PDF
           path: Arch_Linux_Prak_Rakovodstvo_BG.pdf
+
