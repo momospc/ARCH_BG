@@ -1,4 +1,3 @@
-
 name: Build Arch Linux Book (PDF)
 
 on:
@@ -6,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build-pdf:
@@ -34,10 +34,10 @@ jobs:
             --toc-depth=2 \
             --pdf-engine=xelatex \
             -H preamble.tex \
-            -H cover.tex \
+            --include-before-body=titlepage.tex \
             -V mainfont="Noto Serif" \
             -V monofont="JetBrains Mono" \
-            -V geometry:a4paper \
+            -V geometry:a5paper \
             -V geometry:margin=2.5cm \
             -o Arch_Linux_Prak_Rakovodstvo_BG.pdf
 
