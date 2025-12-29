@@ -3,45 +3,38 @@ name: Build Arch Linux Book (PDF)
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
-  build-pdf:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
+          sudo apt update
+          sudo apt install -y \
             pandoc \
             texlive-xetex \
             texlive-fonts-recommended \
-            texlive-fonts-extra \
             texlive-lang-cyrillic \
-            fonts-noto \
-            fonts-jetbrains-mono
+            fonts-liberation \
+            fonts-dejavu
 
-      - name: Build PDF with Pandoc
+      - name: Build PDF
         run: |
           pandoc "archlinux-практическо ръководство.md" \
             --pdf-engine=xelatex \
             --include-in-header=preamble.tex \
-            --include-before-body=titlepage.tex \
             -V documentclass=book \
             -V papersize=A5 \
             -V geometry:margin=2.5cm \
-            -V mainfont="Noto Serif" \
-            -V monofont="JetBrains Mono" \
+            -V cover-image=cover.png \
             -o Arch_Linux_Prak_Rakovodstvo_BG.pdf
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: Arch_Linux_Book_PDF
           path: Arch_Linux_Prak_Rakovodstvo_BG.pdf
