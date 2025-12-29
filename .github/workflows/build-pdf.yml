@@ -28,9 +28,10 @@ jobs:
         run: |
           pandoc "archlinux-практическо ръководство.md" \
             --pdf-engine=xelatex \
-            --include-before-body=titlepage.tex \
             --include-in-header=preamble.tex \
+            --include-before-body=titlepage.tex \
             -V documentclass=book \
+            -V classoption=oneside \
             -V papersize=A5 \
             -V geometry:margin=2.5cm \
             -o Arch_Linux_Prak_Rakovodstvo_BG.pdf
@@ -40,4 +41,5 @@ jobs:
         with:
           name: Arch_Linux_Book_PDF
           path: Arch_Linux_Prak_Rakovodstvo_BG.pdf
+
 

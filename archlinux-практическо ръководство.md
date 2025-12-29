@@ -2,7 +2,8 @@
 lang: bg
 ---
 
-\pagenumbering{gobble}
+\pagenumbering{arabic}
+
 
 # Предговор
 
