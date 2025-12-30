@@ -3,13 +3,15 @@
 Практическо ръководство за Arch Linux на български език.
 
 ## Съдържание
-- Инсталация
-- Конфигурация
+- Инсталация на Arch Linux
+- Конфигурация на системата
 - Графични среди
 - Основни команди и работа със системата
 - Приложение А: Arch User Repository (AUR)
 - Приложение B: System Maintenance в Arch Linux
-- Приложение C: Backups и възстановяване
+- Приложение C: Btrfs snapshots и Timeshift
+- Приложение D: Backups и възстановяване
+- Приложение E: UEFI Secure Boot
 
 ## Build (PDF)
 ```bash
